@@ -1,7 +1,7 @@
 library(tidyverse)
 
-fra <- read_csv("data/fao-fra.csv", col_types = "ccidddd")
-
+fra <- read.csv("data/fao-fra.csv", col_types = "ccidddd")
+glimpse(fra)
 # summarize by continent
 fra_region <- fra %>% 
   group_by(country) %>% 
@@ -26,3 +26,5 @@ fra_region %>%
   labs(x = "Year", y = "% change in natural forest cover / year") +
   scale_color_brewer(name = "Continent", palette = "Set1")
 ggsave('output/forest-change.png')
+
+
